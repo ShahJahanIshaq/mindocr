@@ -26,8 +26,10 @@ from borndigital import BORNDIGITAL_Converter
 from casia10k import CASIA10K_Converter
 from ccpd import CCPD_Converter
 from cocotext import COCOTEXT_Converter
+from cordv2 import CORDV2_Converter
 from ctw import CTW_Converter
 from ctw1500 import CTW1500_Converter
+from gnhk import GNHK_Converter
 from ic15 import IC15_Converter
 from ic19_art import IC19_ART_Converter
 from lsvt import LSVT_Converter
@@ -35,13 +37,16 @@ from mlt2017_9 import MLT2017_Converter, MLT2019_Converter
 from mtwi2018 import MTWI2018_Converter
 from rctw17 import RCTW17_Converter
 from rects import RECTS_Converter
+from rest import REST_Converter
 from sroie import SROIE_Converter
+from svrd import SVRD_Converter
 from svt import SVT_Converter
 from syntext150k import SYNTEXT150K_Converter
 from synthadd import SYNTHADD_Converter
 from synthtext import SYNTHTEXT_Converter
 from td500 import TD500_Converter
 from textocr import TEXTOCR_Converter
+from tianchi import TIANCHI_Converter
 from totaltext import TOTALTEXT_Converter
 
 supported_datasets = [
@@ -65,8 +70,13 @@ supported_datasets = [
     "textocr",
     "rctw17",
     "rects",
+    "rest",
     "ic19_art",
     "cocotext",
+    "gnhk",
+    "cordv2",
+    "svrd",
+    "tianchi",
 ]
 
 
