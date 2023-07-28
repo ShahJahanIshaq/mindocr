@@ -23,7 +23,7 @@ class GNHK_Converter:
 
     def _format_det_label(self, image_dir: Path, label_path: Path, output_path: str):
         with open(output_path, "w", encoding="utf-8") as out_file:
-            images = sorted(image_dir.iterdir(), key=lambda path: int(path.stem.split("_")[-1]))  # sort by image id
+            images = sorted(image_dir.glob("*.jpg"), key=lambda path: int(path.stem.split("_")[-1]))  # sort by image id
             for img_path in images:
                 with open(label_path / (img_path.stem + ".json"), "r") as f:
                     image_info = json.load(f)
