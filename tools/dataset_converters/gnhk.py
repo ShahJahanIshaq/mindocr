@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from shapely.geometry import Polygon
+from mindocr.data.utils.polygon_utils import sort_clockwise
 
 
 class GNHK_Converter:
@@ -41,9 +41,7 @@ class GNHK_Converter:
                         [int(polygon["x" + str(i)]), int(polygon["y" + str(i)])] for i in range(4)
                     ]  # reshape points (4, 2)
 
-                    if not Polygon(points).is_valid:
-                        print(f"Warning {img_path.name}: skipping invalid polygon {points}")
-                        continue
+                    points = sort_clockwise(points).tolist()
 
                     label.append(
                         {
