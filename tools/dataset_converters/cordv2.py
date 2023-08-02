@@ -1,10 +1,8 @@
 import json
 import shutil
-from io import BytesIO
 from pathlib import Path
 
 import pandas as pd
-from PIL import Image
 from tqdm import tqdm
 
 from mindocr.data.utils.polygon_utils import sort_clockwise
@@ -85,8 +83,8 @@ class CORDV2_Converter:
         labels_save_dir.mkdir(exist_ok=True)
 
         for img_num, data in tqdm(df.iterrows(), total=len(df.index)):
-            img = Image.open(BytesIO(data["image"]["bytes"]))
-            img.save(img_save_dir / f"{img_num:04d}.{img.format.lower()}")
+            with open(img_save_dir / f"{img_num:04d}.png", "wb") as f:
+                f.write(data["image"]["bytes"])
 
             with open(labels_save_dir / f"{img_num:04d}.json", "w") as label_file:
                 label_file.write(data["ground_truth"])
